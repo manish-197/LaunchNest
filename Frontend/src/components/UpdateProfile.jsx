@@ -17,7 +17,7 @@ const UpdateProfile = () => {
   });
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null); 
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   useEffect(() => {
     if (user) {
@@ -42,7 +42,7 @@ const UpdateProfile = () => {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
-      setPreviewUrl(URL.createObjectURL(file)); 
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
 
@@ -57,24 +57,22 @@ const UpdateProfile = () => {
       data.append("role", formData.role);
       data.append("bio", formData.bio);
       data.append("location", formData.location);
-      
+
       if (selectedFile) {
-        data.append("profileImage", selectedFile); 
+        data.append("profileImage", selectedFile);
       }
 
       const config = {
         headers: {
-          "x-auth-token": currentToken, 
-          "Content-Type": "multipart/form-data"
+          "x-auth-token": currentToken,
+          "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
       };
-
-      const res = await axios.put(
-        "/api/auth/update",
-        data,
-        config
-      );
+      const API = axios.create({
+        baseURL: import.meta.env.VITE_API_URL,
+      });
+      const res = await API.put("/api/auth/update", data, config);
 
       login(res.data.user, currentToken);
 
@@ -97,13 +95,21 @@ const UpdateProfile = () => {
         </div>
 
         <form className="auth-form" onSubmit={handleSubmit}>
-          
-          <div className="profile-preview-container" style={{ textAlign: 'center', marginBottom: '20px' }}>
-             <img 
-               src={previewUrl || "https://via.placeholder.com/100"} 
-               alt="Preview" 
-               style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #3b82f6' }} 
-             />
+          <div
+            className="profile-preview-container"
+            style={{ textAlign: "center", marginBottom: "20px" }}
+          >
+            <img
+              src={previewUrl || "https://via.placeholder.com/100"}
+              alt="Preview"
+              style={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "2px solid #3b82f6",
+              }}
+            />
           </div>
 
           <div className="input-group">
@@ -120,11 +126,7 @@ const UpdateProfile = () => {
 
           <div className="input-group">
             <label>Profile Picture</label>
-            <input
-              type="file"
-              accept="image/*" 
-              onChange={handleFileChange}
-            />
+            <input type="file" accept="image/*" onChange={handleFileChange} />
           </div>
 
           <div className="input-group">
@@ -135,11 +137,23 @@ const UpdateProfile = () => {
               value={formData.bio}
               onChange={handleChange}
               placeholder="Tell us what you do..."
-              style={{ padding: "12px", borderRadius: "12px", border: "1px solid #e2e8f0", background: "#f8fafc" }}
+              style={{
+                padding: "12px",
+                borderRadius: "12px",
+                border: "1px solid #e2e8f0",
+                background: "#f8fafc",
+              }}
             />
           </div>
 
-          <div className="form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+          <div
+            className="form-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "15px",
+            }}
+          >
             <div className="input-group">
               <label>Location</label>
               <input
@@ -153,7 +167,12 @@ const UpdateProfile = () => {
 
             <div className="input-group">
               <label>Role</label>
-              <select name="role" value={formData.role} onChange={handleChange} className="auth-select">
+              <select
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                className="auth-select"
+              >
                 <option value="founder">Founder</option>
                 <option value="investor">Investor</option>
               </select>
@@ -172,13 +191,23 @@ const UpdateProfile = () => {
             />
           </div>
 
-          <button type="submit" className="auth-btn">Save Changes</button>
+          <button type="submit" className="auth-btn">
+            Save Changes
+          </button>
 
           <button
             type="button"
             className="auth-footer-btn"
             onClick={() => navigate("/profile")}
-            style={{ background: "none", border: "none", cursor: "pointer", color: "#64748b", marginTop: "15px", width: "100%", textDecoration: "underline" }}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "#64748b",
+              marginTop: "15px",
+              width: "100%",
+              textDecoration: "underline",
+            }}
           >
             Cancel and Return to Profile
           </button>

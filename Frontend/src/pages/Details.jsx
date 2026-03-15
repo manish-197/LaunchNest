@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './details.css';
+import React, { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./details.css";
 
 const Details = () => {
   const { id } = useParams();
@@ -12,7 +12,10 @@ const Details = () => {
   useEffect(() => {
     const fetchStartupDetails = async () => {
       try {
-        const res = await axios.get(`/api/startup/${id}`);
+        const API = axios.create({
+          baseURL: import.meta.env.VITE_API_URL,
+        });
+        const res = await API.get(`/api/startup/${id}`);
         setStartup(res.data);
       } catch (err) {
         console.error("Error loading details:", err);
@@ -30,7 +33,9 @@ const Details = () => {
   return (
     <div className="details-page">
       <div className="details-container">
-        <Link onClick={() => navigate(-1)}  className="back-link">← Back to Explore</Link>
+        <Link onClick={() => navigate(-1)} className="back-link">
+          ← Back to Explore
+        </Link>
         {/* <button className='back-link' onClick={() => navigate(-1)}>← Back to Explore</button> */}
 
         <div className="details-main-grid">
@@ -42,7 +47,10 @@ const Details = () => {
               <div className="details-title-box">
                 <span className="industry-pill">{startup.industry}</span>
                 <h1>{startup.startupName}</h1>
-                <p className="founder-name">Founded by <strong>{startup.owner?.name || "Anonymous"}</strong></p>
+                <p className="founder-name">
+                  Founded by{" "}
+                  <strong>{startup.owner?.name || "Anonymous"}</strong>
+                </p>
               </div>
             </header>
 
@@ -53,7 +61,12 @@ const Details = () => {
 
             <section className="details-section">
               <h3>Official Website</h3>
-              <a href={startup.website} target="_blank" rel="noreferrer" className="website-link">
+              <a
+                href={startup.website}
+                target="_blank"
+                rel="noreferrer"
+                className="website-link"
+              >
                 {startup.website}
               </a>
             </section>
@@ -80,7 +93,9 @@ const Details = () => {
               </div>
               <div className="info-item">
                 <span>Date Listed</span>
-                <strong>{new Date(startup.createdAt).toLocaleDateString()}</strong>
+                <strong>
+                  {new Date(startup.createdAt).toLocaleDateString()}
+                </strong>
               </div>
             </div>
           </div>

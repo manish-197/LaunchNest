@@ -1,40 +1,48 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../context/AuthContext";
 
-import './auth.css';
+import "./auth.css";
 
 const SignIn = ({ setIsLoggedIn }) => {
   const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/login', { email, password }, { withCredentials: true });
+      const API = axios.create({
+        baseURL: import.meta.env.VITE_API_URL,
+      });
+      const res = await API.post(
+        "/api/auth/login",
+        { email, password },
+        { withCredentials: true },
+      );
       login(res.data.user, res.data.token);
-      console.log(res.data.token)
-    window.location.href = "/profile";
-
+      console.log(res.data.token);
+      window.location.href = "/profile";
     } catch (err) {
-        console.log(err);
+      console.log(err);
 
-        if (err.response) {
-          alert(err.response.data.message || "Login failed");
-        } else {
-          alert("Server not responding");
-        }
+      if (err.response) {
+        alert(err.response.data.message || "Login failed");
+      } else {
+        alert("Server not responding");
       }
-  }
+    }
+  };
 
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
         <div className="auth-header">
-          <Link to="/" className="auth-logo">START<span>UP</span></Link>
+          <Link to="/" className="auth-logo">
+            START<span>UP</span>
+          </Link>
           <h2>Welcome Back</h2>
           <p>Please enter your details to sign in.</p>
         </div>
@@ -42,27 +50,38 @@ const SignIn = ({ setIsLoggedIn }) => {
         <form onSubmit={handleSignIn} className="auth-form">
           <div className="input-group">
             <label>Email Address</label>
-            <input 
-              type="email" 
-              placeholder="name@company.com" 
+            <input
+              type="email"
+              placeholder="name@company.com"
               onChange={(e) => setEmail(e.target.value)}
-              required 
+              required
             />
           </div>
 
           <div className="input-group">
             <div className="label-row">
               <label>Password</label>
-              <a href="#" className="forgot-pass">Forgot?</a>
+              <a href="#" className="forgot-pass">
+                Forgot?
+              </a>
             </div>
-            <input type="password" placeholder="••••••••" required onChange={(e) => setPassword(e.target.value)}/>
+            <input
+              type="password"
+              placeholder="••••••••"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
-          <button type="submit" className="auth-btn">Sign In</button>
+          <button type="submit" className="auth-btn">
+            Sign In
+          </button>
         </form>
 
         <div className="auth-footer">
-          <p>Don't have an account? <Link to="/signup">Create account</Link></p>
+          <p>
+            Don't have an account? <Link to="/signup">Create account</Link>
+          </p>
         </div>
       </div>
     </div>

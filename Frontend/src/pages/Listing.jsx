@@ -4,15 +4,16 @@ import axios from "axios";
 import "./listing.css";
 
 const Listing = () => {
- 
-
   const [startups, setStartups] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStartups = async () => {
       try {
-        const res = await axios.get("/api/startup/all");
+        const API = axios.create({
+          baseURL: import.meta.env.VITE_API_URL,
+        });
+        const res = await API.get("/api/startup/all");
         setStartups(res.data);
       } catch (err) {
         console.error("Error fetching startups:", err);
@@ -22,7 +23,6 @@ const Listing = () => {
     };
     fetchStartups();
   }, []);
-
 
   return (
     <div className="listing-page">
@@ -71,7 +71,7 @@ const Listing = () => {
                   <div className="funding-info">
                     <span className="label">Funding Goal:</span>
                     <span className="amount">
-                      Rs. 
+                      Rs.
                       {startup.fundingGoal
                         ? startup.fundingGoal.toLocaleString()
                         : "0"}

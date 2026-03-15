@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './auth.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./auth.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    role: 'founder'
+    name: "",
+    email: "",
+    password: "",
+    role: "founder",
   });
 
   const handleChange = (e) => {
@@ -21,9 +21,12 @@ const SignUp = () => {
     e.preventDefault();
     try {
       // Ensure the URL matches your server port (e.g., 5000)
-      const response = await axios.post('/api/auth/register', formData);
-      alert(response.data.msg); 
-      navigate('/signin'); // Redirect user to Login page after success
+      const API = axios.create({
+        baseURL: import.meta.env.VITE_API_URL,
+      });
+      const response = await API.post("/api/auth/register", formData);
+      alert(response.data.msg);
+      navigate("/signin"); // Redirect user to Login page after success
     } catch (err) {
       console.error("Frontend Error:", err.response?.data);
       alert(err.response?.data?.msg || "Something went wrong!");
@@ -31,10 +34,12 @@ const SignUp = () => {
   };
 
   return (
-   <div className="auth-wrapper">
+    <div className="auth-wrapper">
       <div className="auth-card">
         <div className="auth-header">
-          <Link to="/" className="auth-logo">START<span>UP</span></Link>
+          <Link to="/" className="auth-logo">
+            START<span>UP</span>
+          </Link>
           <h2>Create Account</h2>
           <p>Join the community of innovators and investors.</p>
         </div>
@@ -42,34 +47,34 @@ const SignUp = () => {
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label>Full Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="John Doe" 
-              onChange={handleChange} 
-              required 
+            <input
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              onChange={handleChange}
+              required
             />
           </div>
 
           <div className="input-group">
             <label>Email Address</label>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="name@company.com" 
-              onChange={handleChange} 
-              required 
+            <input
+              type="email"
+              name="email"
+              placeholder="name@company.com"
+              onChange={handleChange}
+              required
             />
           </div>
 
           <div className="input-group">
             <label>Password</label>
-            <input 
-              type="password" 
-              name="password" 
-              placeholder="••••••••" 
-              onChange={handleChange} 
-              required 
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              onChange={handleChange}
+              required
             />
           </div>
 
@@ -81,11 +86,15 @@ const SignUp = () => {
             </select>
           </div>
 
-          <button type="submit" className="auth-btn">Register</button>
+          <button type="submit" className="auth-btn">
+            Register
+          </button>
         </form>
 
         <div className="auth-footer">
-          <p>Already have an account? <Link to="/signin">Sign In</Link></p>
+          <p>
+            Already have an account? <Link to="/signin">Sign In</Link>
+          </p>
         </div>
       </div>
     </div>
