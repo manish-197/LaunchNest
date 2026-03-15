@@ -146,7 +146,7 @@ const Profile = () => {
                           Update
                         </button>
                         <button
-                          className="logout-btn btn"
+                          className="btn btn-del"
                           onClick={() => handleDelete(startup._id)}
                         >
                           Delete

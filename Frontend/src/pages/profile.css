@@ -298,10 +298,16 @@
 
 .logout-btn {
   background-color: #fae0e0;
-  color: #ef4444;
   border: none;
   padding: 10px 20px;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
+  color: #ef4444;
+}
+
+.btn-del{
+  color: #ef4444;
+  background-color: #e59e9e;
+
 }
