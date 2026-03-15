@@ -4,7 +4,7 @@ const connectDB = require('./config/database')
 const authRouter = require('./routes/auth.routes')
 const startupRouter = require('./routes/startup.routes')
 const cookieParser = require("cookie-parser");
-const path = require('path');
+// const path = require('path');
 
 
 
@@ -26,18 +26,13 @@ app.use(cookieParser());
 app.use('/api/auth', authRouter)
 app.use('/api/startup', startupRouter)
 
-app.get('/:splat*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
-
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
+app.use(express.static("./public"))
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
 });
+
 
 
 
