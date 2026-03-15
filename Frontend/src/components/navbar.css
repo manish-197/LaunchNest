@@ -81,7 +81,7 @@
 /* Responsive Logic */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none; /* मोठ्या स्क्रीनचे लिंक्स लपवा */
+    display: none; 
   }
 
   .nav-links-mobile {
@@ -105,6 +105,11 @@
   .nav-links-mobile.open {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .nav-links-mobile li{
+    text-align: center;
+    font-size: 2rem;
   }
 
   .mobile-menu-icon {
