@@ -12,7 +12,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchMyStartups = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/startup/my-startups', {
+        const res = await axios.get('/api/startup/my-startups', {
           headers: { 'x-auth-token': token || localStorage.getItem('token') }
         });
         setMyStartups(res.data);
@@ -36,7 +36,7 @@ const Profile = () => {
   if (window.confirm("Are you sure you want to delete this startup?")) {
     try {
       const currentToken = localStorage.getItem('token');
-      await axios.delete(`http://localhost:3000/api/startup/delete/${id}`, {
+      await axios.delete(`/api/startup/delete/${id}`, {
         headers: { 'x-auth-token': currentToken }
       });
       

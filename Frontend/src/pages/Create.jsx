@@ -29,7 +29,7 @@ const Create = () => {
         withCredentials: true,
     };
 
-    await axios.post('http://localhost:3000/api/startup/create', formData, config);
+    await axios.post('/api/startup/create', formData, config);
     alert(" Startup Published Successfully!");
     navigate('/profile');
   } catch (err) {

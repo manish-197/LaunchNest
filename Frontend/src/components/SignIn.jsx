@@ -14,7 +14,7 @@ const SignIn = ({ setIsLoggedIn }) => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/login', { email, password }, { withCredentials: true });
+      const res = await axios.post('/api/auth/login', { email, password }, { withCredentials: true });
       login(res.data.user, res.data.token);
       console.log(res.data.token)
     window.location.href = "/profile";

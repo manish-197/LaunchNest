@@ -17,7 +17,7 @@ const UpdateProfile = () => {
   });
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null); // इमेज प्रीव्ह्यूसाठी
+  const [previewUrl, setPreviewUrl] = useState(null); 
 
   useEffect(() => {
     if (user) {
@@ -28,7 +28,6 @@ const UpdateProfile = () => {
         bio: user.bio || "",
         location: user.location || "",
       });
-      // जर युजरकडे आधीच इमेज असेल तर ती प्रीव्ह्यूमध्ये दाखवा
       if (user.profileImage) {
         setPreviewUrl(user.profileImage);
       }
@@ -43,7 +42,7 @@ const UpdateProfile = () => {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
-      setPreviewUrl(URL.createObjectURL(file)); // तात्पुरती URL तयार करून फोटो दाखवणे
+      setPreviewUrl(URL.createObjectURL(file)); 
     }
   };
 
@@ -60,7 +59,6 @@ const UpdateProfile = () => {
       data.append("location", formData.location);
       
       if (selectedFile) {
-        // तुमच्या बॅकएंडमध्ये 'profileImage' हे नाव वापरले आहे, म्हणून इथेही तेच वापरा
         data.append("profileImage", selectedFile); 
       }
 
@@ -73,12 +71,11 @@ const UpdateProfile = () => {
       };
 
       const res = await axios.put(
-        "http://localhost:3000/api/auth/update",
+        "/api/auth/update",
         data,
         config
       );
 
-      // बॅकएंडकडून आलेला नवीन युजर डेटा अपडेट करा
       login(res.data.user, currentToken);
 
       alert("Profile Updated Successfully! 🎉");
@@ -101,7 +98,6 @@ const UpdateProfile = () => {
 
         <form className="auth-form" onSubmit={handleSubmit}>
           
-          {/* Profile Image Preview Section */}
           <div className="profile-preview-container" style={{ textAlign: 'center', marginBottom: '20px' }}>
              <img 
                src={previewUrl || "https://via.placeholder.com/100"} 
@@ -128,7 +124,6 @@ const UpdateProfile = () => {
               type="file"
               accept="image/*" 
               onChange={handleFileChange}
-              // टीप: इथे 'value' प्रॉप वापरू नका
             />
           </div>
 

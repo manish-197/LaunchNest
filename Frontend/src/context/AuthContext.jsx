@@ -2,10 +2,8 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import { use } from "react";
 import axios from "axios";
 
-// १. Context तयार करा
 const AuthContext = createContext();
 
-// २. Provider Component
 export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
@@ -17,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/me", {
+        const res = await axios.get("/api/auth/me", {
           headers: {
             "x-auth-token": token, 
           },

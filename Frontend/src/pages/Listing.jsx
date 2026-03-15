@@ -12,7 +12,7 @@ const Listing = () => {
   useEffect(() => {
     const fetchStartups = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/startup/all");
+        const res = await axios.get("/api/startup/all");
         setStartups(res.data);
       } catch (err) {
         console.error("Error fetching startups:", err);
