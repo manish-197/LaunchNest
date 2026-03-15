@@ -26,11 +26,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRouter)
 app.use('/api/startup', startupRouter)
 
-app.get(/^(?!\/api).+/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
-
-app.get('*', (req, res) => {
+app.get('/:splat*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
