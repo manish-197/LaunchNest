@@ -28,6 +28,10 @@ app.use('/api/startup', startupRouter)
 
 app.use(express.static("./public"))
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
