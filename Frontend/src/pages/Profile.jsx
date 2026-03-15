@@ -37,7 +37,8 @@ const Profile = () => {
     if (window.confirm("Are you sure you want to delete this startup?")) {
       try {
         const currentToken = localStorage.getItem("token");
-        await axios.delete(`/api/startup/delete/${id}`, {
+        const API = import.meta.env.VITE_API_URL;
+        await axios.delete(`${API}/api/startup/delete/${id}`, {
           headers: { "x-auth-token": currentToken },
         });
 

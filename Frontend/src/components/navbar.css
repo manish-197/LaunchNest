@@ -81,9 +81,39 @@
 /* Responsive Logic */
 @media screen and (max-width: 768px) {
   .nav-links {
-    display: none; /* Mobile menu logic can be added here */
+    display: none; /* मोठ्या स्क्रीनचे लिंक्स लपवा */
   }
+
+  .nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #f3f3f3;
+    list-style: none;
+    transition: all 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-links-mobile.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   .mobile-menu-icon {
-    display: block;
+    display: block; 
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-icon {
+    display: none; 
   }
 }
