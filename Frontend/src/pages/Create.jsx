@@ -28,11 +28,9 @@ const Create = () => {
         withCredentials: true,
       };
 
-      const API = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-      });
+      const API = import.meta.env.VITE_API_URL;
 
-      await API.post("/api/startup/create", formData, config);
+      await axios.post(`${API}/api/startup/create`, formData, config);
       alert(" Startup Published Successfully!");
       navigate("/profile");
     } catch (err) {

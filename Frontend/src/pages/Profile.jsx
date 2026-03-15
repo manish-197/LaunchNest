@@ -12,10 +12,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchMyStartups = async () => {
       try {
-        const API = axios.create({
-          baseURL: import.meta.env.VITE_API_URL,
-        });
-        const res = await API.get("/api/startup/my-startups", {
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/startup/my-startups`, {
           headers: { "x-auth-token": token || localStorage.getItem("token") },
         });
         setMyStartups(res.data);

@@ -15,7 +15,8 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await axios.get("/api/auth/me", {
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/auth/me`, {
           headers: {
             "x-auth-token": token, 
           },

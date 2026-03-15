@@ -12,10 +12,8 @@ const Details = () => {
   useEffect(() => {
     const fetchStartupDetails = async () => {
       try {
-        const API = axios.create({
-          baseURL: import.meta.env.VITE_API_URL,
-        });
-        const res = await API.get(`/api/startup/${id}`);
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/startup/${id}`);
         setStartup(res.data);
       } catch (err) {
         console.error("Error loading details:", err);

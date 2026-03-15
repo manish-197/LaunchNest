@@ -69,10 +69,8 @@ const UpdateProfile = () => {
         },
         withCredentials: true,
       };
-      const API = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-      });
-      const res = await API.put("/api/auth/update", data, config);
+      const API = import.meta.env.VITE_API_URL;
+      const res = await axios.put(`${API}/api/auth/update`, data, config);
 
       login(res.data.user, currentToken);
 

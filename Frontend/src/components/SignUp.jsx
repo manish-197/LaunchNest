@@ -21,10 +21,8 @@ const SignUp = () => {
     e.preventDefault();
     try {
       // Ensure the URL matches your server port (e.g., 5000)
-      const API = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-      });
-      const response = await API.post("/api/auth/register", formData);
+     const API = import.meta.env.VITE_API_URL;
+      const response = await axios.post(`${API}/api/auth/register`, formData);
       alert(response.data.msg);
       navigate("/signin"); // Redirect user to Login page after success
     } catch (err) {

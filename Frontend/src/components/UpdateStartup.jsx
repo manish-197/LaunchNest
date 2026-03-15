@@ -22,10 +22,8 @@ const UpdateStartup = () => {
   useEffect(() => {
     const fetchOldData = async () => {
       try {
-        const API = axios.create({
-          baseURL: import.meta.env.VITE_API_URL,
-        });
-        const res = await API.get(`/api/startup/${id}`);
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/startup/${id}`);
         const data = res.data;
         setFormData({
           startupName: data.startupName || "",
@@ -51,10 +49,8 @@ const UpdateStartup = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     try {
-      const API = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-      });
-      await API.put(`/api/startup/update/${id}`, formData, {
+      const API = import.meta.env.VITE_API_URL;
+      await API.put(`${API}/api/startup/update/${id}`, formData, {
         headers: { "x-auth-token": token },
       });
       alert("Startup Updated Successfully! 🎉");

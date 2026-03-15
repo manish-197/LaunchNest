@@ -14,11 +14,9 @@ const SignIn = ({ setIsLoggedIn }) => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const API = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-      });
-      const res = await API.post(
-        "/api/auth/login",
+      const API = import.meta.env.VITE_API_URL;
+      const res = await axios.post(
+        `${API}/api/auth/login`,
         { email, password },
         { withCredentials: true },
       );

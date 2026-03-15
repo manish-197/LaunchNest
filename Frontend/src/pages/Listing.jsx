@@ -10,10 +10,8 @@ const Listing = () => {
   useEffect(() => {
     const fetchStartups = async () => {
       try {
-        const API = axios.create({
-          baseURL: import.meta.env.VITE_API_URL,
-        });
-        const res = await API.get("/api/startup/all");
+        const API = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${API}/api/startup/all`);
         setStartups(res.data);
       } catch (err) {
         console.error("Error fetching startups:", err);
