@@ -1,0 +1,115 @@
+/* CreateStartup.css */
+
+.create-page {
+  padding: 120px 20px 60px;
+  background: radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  padding: 50px;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.form-header h1 span {
+  color: #2563eb;
+}
+
+.form-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Form Layout */
+.startup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: #2563eb;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .full-width { grid-column: span 1; }
+  .form-wrapper { padding: 30px 20px; }
+  .form-header h1 { font-size: 1.8rem; }
+}

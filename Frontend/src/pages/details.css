@@ -1,0 +1,165 @@
+/* StartupDetails.css */
+
+.details-page {
+  padding: 120px 20px 60px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.details-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #2563eb;
+}
+
+/* Layout Grid */
+.details-main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left Content */
+.details-left {
+  background: white;
+  padding: 50px;
+  border-radius: 32px;
+  border: 1px solid #e2e8f0;
+}
+
+.details-header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 40px;
+}
+
+.details-logo-large {
+  width: 100px;
+  height: 100px;
+  background: #2563eb;
+  color: white;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.industry-pill {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.details-title-box h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.details-section {
+  margin-bottom: 40px;
+}
+
+.details-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.details-section p {
+  line-height: 1.8;
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+/* Sidebar Cards */
+.sidebar-card {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.funding-card {
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+.sidebar-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.funding-amount {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+
+.connect-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.connect-btn:hover {
+  transform: scale(1.02);
+  background: #3b82f6;
+}
+
+.security-note {
+  margin-top: 15px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.info-item:last-child { border: none; }
+
+.info-item span { color: #64748b; font-size: 0.9rem; }
+.info-item a { color: #2563eb; text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .details-main-grid { grid-template-columns: 1fr; }
+  .details-left { padding: 30px; }
+}

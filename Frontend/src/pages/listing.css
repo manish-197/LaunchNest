@@ -1,0 +1,155 @@
+/* StartupListing.css */
+
+.listing-page {
+  padding-top: 100px; /* Navbar space */
+  background-color: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.listing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Section */
+.listing-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.listing-header h1 {
+  font-size: 2.8rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.listing-header h1 span {
+  color: #2563eb;
+}
+
+.listing-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Search Bar */
+.search-filter-bar {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  font-size: 1rem;
+}
+
+.filter-select {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  color: #475569;
+}
+
+/* Grid & Cards */
+.startup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.startup-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #f1f5f9;
+  padding: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.startup-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border-color: #dbeafe;
+}
+
+.card-logo {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.card-industry {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.card-name {
+  font-size: 1.4rem;
+  margin: 15px 0 10px;
+  color: #0f172a;
+}
+
+.card-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+/* Card Footer */
+.card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.funding-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.funding-info .label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.funding-info .amount {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.view-details-btn {
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.view-details-btn:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .listing-header h1 { font-size: 2rem; }
+  .startup-grid { grid-template-columns: 1fr; }
+}

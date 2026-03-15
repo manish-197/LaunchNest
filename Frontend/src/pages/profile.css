@@ -1,0 +1,253 @@
+/* Profile.css */
+
+.profile-page {
+  padding: 100px 20px 60px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.profile-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header & Avatar */
+.profile-header {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.cover-photo {
+  height: 160px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+}
+
+.profile-info-main {
+  padding: 0 40px 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 25px;
+  position: relative;
+  margin-top: -60px; /* Pulls avatar up into the cover */
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  background: #0f172a;
+  color: white;
+  border: 5px solid white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.profile-avatar img{
+   width: 100%;
+   height: 100%;
+   /* border-radius: 50%; */
+   object-fit: cover;
+}
+
+.name-section {
+  flex-grow: 1;
+  padding-bottom: 10px;
+}
+
+.name-section h1 {
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.role-tag {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.btn:active{
+  scale: .95;
+}
+
+.edit-profile-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 10px 20px;
+  margin: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Content Cards */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 25px;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 25px;
+}
+
+.profile-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.bio-text {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.contact-item {
+  margin-bottom: 12px;
+  color: #64748b;
+}
+
+.contact-item strong {
+  color: #0f172a;
+  margin-right: 5px;
+}
+
+/* Startup Item Mini */
+.user-startup-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin: 15px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.startup-mini-logo {
+  width: 45px;
+  height: 45px;
+  background: #2563eb;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.btn-u{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+
+.btn-u button{
+  padding: 2px 5px;
+   background: #f1f5f97b;
+  border: 1px solid rgb(111, 108, 108);
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+
+.startup-mini-info h4 { margin: 0; font-size: 1rem; }
+.startup-mini-info span { font-size: 0.8rem; color: #64748b; }
+
+.status-badge {
+  margin-left: auto;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .profile-info-main { flex-direction: column; align-items: center; text-align: center; margin-top: -60px; }
+  .edit-profile-btn { width: 100%; }
+}
+
+
+/* profile update */
+
+
+.edit-input-name {
+  font-size: 2rem;
+  font-weight: 700;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 5px 10px;
+  width: 100%;
+  color: #0f172a;
+}
+
+.edit-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  color: #475569;
+}
+
+.edit-input-small {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-left: 5px;
+}
+
+.action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #f1f5f9;
+  color: #64748b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #fae0e0;
+  color: #ef4444;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}

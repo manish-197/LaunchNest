@@ -1,0 +1,89 @@
+/* Navbar Main Styles */
+.navbar {
+  height: 80px;
+  background: rgba(255, 255, 255, 0.8); /* Glass effect background */
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Logo Styling */
+.nav-logo a {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #0f172a; /* Dark Slate */
+  letter-spacing: -1px;
+}
+
+.nav-logo span {
+  color: #2563eb; /* Primary Blue */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+  color: #2563eb;
+}
+
+/* Profile Button */
+.nav-profile-btn {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: white !important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.nav-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Mobile Menu Icon */
+.mobile-menu-icon {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Logic */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none; /* Mobile menu logic can be added here */
+  }
+  .mobile-menu-icon {
+    display: block;
+  }
+}
