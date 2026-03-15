@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
-import "./Auth.css";
+import "./auth.css";
 
 const UpdateProfile = () => {
   const { user, token, login } = useAuth();
