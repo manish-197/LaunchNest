@@ -181,10 +181,64 @@
 
 /* Responsive */
 @media (max-width: 850px) {
-  .profile-grid { grid-template-columns: 1fr; }
-  .profile-info-main { flex-direction: column; align-items: center; text-align: center; margin-top: -60px; }
-  .edit-profile-btn { width: 100%; }
-}
+  .profile-page {
+    padding: 80px 10px 40px; /* पॅडिंग कमी करा जेणेकरून जागा मिळेल */
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr; /* एक कॉलम लेआउट */
+    gap: 15px;
+  }
+
+  .profile-info-main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -60px;
+    padding: 0 15px 20px; /* साईड पॅडिंग कमी करा */
+    gap: 15px;
+    width: 100%;
+  }
+
+  .name-section {
+    width: 100%;
+  }
+
+  .name-section h1 {
+    font-size: 1.5rem; /* मोबाईलवर फॉन्ट साईज कमी करा */
+  }
+
+  .profile-actions {
+    display: flex;
+    flex-direction: column; /* बटन्स एकाखाली एक */
+    width: 100%;
+    gap: 10px;
+  }
+
+  .edit-profile-btn, .logout-btn {
+    width: 100%; /* बटन्सची पूर्ण रुंदी */
+    margin: 0; /* जास्तीचे मार्जिन काढा */
+  }
+
+  /* Startup Item कार्ड मोबाईलवर नीट दिसण्यासाठी */
+  .user-startup-item {
+    flex-wrap: wrap; /* कंटेंट जागा नसेल तर खाली सरकेल */
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .status-badge {
+    margin: 10px 0;
+    width: fit-content;
+  }
+
+  .btn-u {
+    flex-direction: row; /* अपडेट आणि डिलीट बटन्स शेजारी ठेवा */
+    justify-content: center;
+    width: 100%;
+  }
 
 
 /* profile update */
