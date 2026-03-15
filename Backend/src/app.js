@@ -4,7 +4,7 @@ const connectDB = require('./config/database')
 const authRouter = require('./routes/auth.routes')
 const startupRouter = require('./routes/startup.routes')
 const cookieParser = require("cookie-parser");
-// const path = require('path');
+const path = require('path');
 
 
 
