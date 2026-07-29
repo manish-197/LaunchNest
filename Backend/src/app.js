@@ -13,9 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(cors(
   {
-    origin: [
-      "http://localhost:5173",
-    'https://launch-nest.netlify.app' ],
+    origin: 'https://launch-nest.netlify.app',
     credentials: true,               
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
